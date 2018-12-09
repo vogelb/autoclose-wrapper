@@ -7,7 +7,7 @@ The wrapper works with reflection or with a callback. The wrapped class must sti
 Example: `javax.ws.rs.Client` implements a close method but not AutoCloseable. The close method is automatically detected
 
 	import javax.ws.rs.client.Client;
-        import javax.ws.rs.client.ClientBuilder;
+	import javax.ws.rs.client.ClientBuilder;
 	
 	public interface AutocloseableClient extends Client, AutoCloseable { }
 	
@@ -24,9 +24,9 @@ Example: `javax.ws.rs.Client` implements a close method but not AutoCloseable. T
 Example using a callback: 
 	
 	import javax.ws.rs.client.Client;
-        import javax.ws.rs.client.ClientBuilder;
+	import javax.ws.rs.client.ClientBuilder;
 	
-	public class SomeClass() {
+	public class SomeClass {
 		public void foo() {
 			try (AutocloseableClient client = AutoCloseWrapper.createInstance(AutocloseableClient.class, ClientBuilder.newClient(),
 				new AutoCloseWrapper.CloseCallback<Client>() {
